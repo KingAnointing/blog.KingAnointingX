@@ -17,7 +17,7 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: "SaintMalik🌟",
+      title: "Ramblings from Abdulmalik",
       logo: {
         alt: "SaintMalik",
         src: "img/saintmalik.jpg",
