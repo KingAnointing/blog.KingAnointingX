@@ -5,7 +5,7 @@ author: Saintmalik
 author_title: AppSec Engineer
 author_url: https://twitter.com/saintmalik_
 author_image_url: https://res.cloudinary.com/saintmalik/image/upload/e_sharpen:2000,q_74,r_0/v1641922078/saintmalik.webp
-image: https://saintmalikme.mo.cloudinary.net/img/kube-secret-management.jpeg
+image: https://saintmalikme.mo.cloudinary.net/bgimg/kube-secret-management.jpeg
 tags: [appsec, kube, devsecops]
 ---
 
@@ -51,7 +51,7 @@ you are adding the secrets using environment variables, and if you are not doing
 
 regardless of the ways you are getting secrets to your pods, none of the process is recommended security wise, because secrets are not encrypted on rest, in memory or etcd.
 
-injected secrets in the containers are in plaintext or base64, and you might also end up committing the yaml file to github as your Source Of Truth that if you plan to dpo GitOps.
+injected secrets in the containers are in plaintext or base64, and you might also end up committing the yaml file to github as your Source Of Truth that if you plan to do GitOps.
 
 and if something goes wrong either at org level or via third party access on your github repo, these secrets become available to attackers in plaintext.
 
@@ -69,7 +69,7 @@ So lets get into fixing this, time to jump in;
 - Vault Policies and Service Accounts creations
 - Injection of created secrets in kv into our deployment/pod yaml file
 
-### Vault Installation
+## Vault Installation
 
 Before installing the vault, you need to create a namespace called vault in your kube cluster
 
@@ -118,13 +118,13 @@ because if you cant unseal your vault, it means you've lost access to your vault
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.webp`} alt="hashicorp vault unseal"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp vault unseal"/>
+  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp vault unseal"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp vault unseal"/>
 </picture>
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.webp`} alt="hashicorp vault unsealed"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp vault unsealed"/>
+  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp vault unsealed"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp vault unsealed"/>
 </picture>
 
@@ -187,7 +187,7 @@ vault kv put -mount=secret golangsecrets apikey="jduhdshieioieiisbbjsb" awskey="
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.webp`} alt="eks kube vault kv secret creation"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="eks kube vault kv secret creation"/>
+  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="eks kube vault kv secret creation"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="eks kube vault kv secret creation"/>
 </picture>
 
@@ -195,7 +195,7 @@ So now we've created kube auth, enabled kv secrets at the same time, weve added 
 
 Now lets move to the part where we make vault and pods get to communicate with each other via roles, service account and policies.
 
-### Create custom service account
+## Create custom service account
 
 While the humans use kubeconfig to authenticate with the cluster, pods use serviceaccounts to authenticate.
 
@@ -212,7 +212,7 @@ metadata:
         app: hashicorp-vault-k8s-pod
 ```
 
-### Creating vault policies
+## Creating vault policies
 
 You need to create a policies that defines what access a vault role has on a certain secret path, whether its just a **read** permission or the role can perform more actions such as **delete**, **update** and more, you can also read up more about vault policies <a href="https://developer.hashicorp.com/vault/docs/concepts/policies" target="_blank">here</a>.
 
@@ -238,7 +238,7 @@ vault policy write hashi-vault-k8s-policy /home/vault/hashicorp-vault-k8s.hcl
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/vault-policy-creation.jpg`} alt="vault policy creation"/>
 </picture>
 
-### Creating vault roles for k8s access
+## Creating vault roles for k8s access
 
 You need to create a vault role under the k8s auth we've configured earlier, this role is what we will bind the serviceaccount and policies too.
 
