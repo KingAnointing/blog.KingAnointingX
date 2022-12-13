@@ -9,6 +9,7 @@ image: https://saintmalikme.mo.cloudinary.net/bgimg/kube-secret-management.jpeg
 tags: [appsec, kube, devsecops]
 ---
 
+import Figure from '../src/components/Figure';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from "@giscus/react";
 
@@ -99,7 +100,6 @@ so run
 kubectl exec -it vault-vault-0  -n vault -- vault operator init
 ```
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.webp`} alt="hashicorp-vault-operator-init"/>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp-vault-operator-init"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp-vault-operator-init"/>
 </picture>
@@ -116,18 +116,21 @@ Also make sure you copy both the root token and the sealed keys into seperate no
 
 because if you cant unseal your vault, it means you've lost access to your vault and the data, hence you will be creating a new vault
 :::
-
+<Figure>
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.webp`} alt="hashicorp-vault-unseal"/>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp-vault-unseal"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp-vault-unseal"/>
 </picture>
+  <p>unsealed one key</p>
+  </Figure>
 
+<Figure>
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.webp`} alt="hashicorp-vault-unseal"/>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp-vault-unseal"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp-vault-unseal"/>
 </picture>
+  <p>unsealed three keys</p>
+  </Figure>
 
 Also there are ways to auto unseal, but thats a topic for another day.
 
@@ -187,7 +190,6 @@ vault kv put -mount=secret golangsecrets apikey="jduhdshieioieiisbbjsb" awskey="
 ```
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.webp`} alt="kube-vault-create-kv-secret"/>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="kube-vault-create-kv-secret"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="kube-vault-create-kv-secret"/>
 </picture>
@@ -355,7 +357,7 @@ spec:
         command:
           ['sh', '-c']
         args:
-          ['source /vault/secrets/golangsecrets && npm start']
+          ['source /vault/secrets/golangsecrets']
 
 ---
 apiVersion: v1
