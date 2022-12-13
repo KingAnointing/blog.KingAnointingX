@@ -60,7 +60,7 @@ So lets get into fixing this, time to jump in;
 ## My Environment set up?
 
 - AWS EKS Cluster(Fargate) — Here is terraform codes
-- Local Installations are helm, kubectl and Vault for CLI — Refer here for instructions on how to install Vault CLI
+- Local Installations are helm, kubectl and Vault for CLI
 
 ## What will i be doing ?
 - Spining up a running Vault on Kubernetes
@@ -111,7 +111,8 @@ kubectl exec -it vault-vault-0  -n vault -- vault unseal KEY1
 kubectl exec -it vault-vault-0  -n vault -- vault unseal KEY2
 kubectl exec -it vault-vault-0  -n vault -- vault unseal KEY3
 ```
-:::note Also make sure you copy both the root token and the sealed keys into seperate note cause you might need to login via root token later or probably unsealling again.
+:::note
+Also make sure you copy both the root token and the sealed keys into seperate note cause you might need to login via root token later or probably unsealling again.
 
 because if you cant unseal your vault, it means you've lost access to your vault and the data, hence you will be creating a new vault
 :::
@@ -317,7 +318,7 @@ also the **vault.hashicorp.com/tls-skip-verify: 'true'** is not recommended in p
 
 your final deployment yaml file should look like this
 
-```yaml deplyu.yaml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
