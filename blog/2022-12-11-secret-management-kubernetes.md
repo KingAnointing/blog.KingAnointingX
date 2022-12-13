@@ -99,9 +99,9 @@ so run
 kubectl exec -it vault-vault-0  -n vault -- vault operator init
 ```
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.webp`} alt="hashicorp vault operator init"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp vault operator init"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp vault operator init"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.webp`} alt="hashicorp-vault-operator-init"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp-vault-operator-init"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-operator-init.jpg`} alt="hashicorp-vault-operator-init"/>
 </picture>
 
 Now you need to unseal atleast 3 key to get it up running
@@ -118,15 +118,15 @@ because if you cant unseal your vault, it means you've lost access to your vault
 :::
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.webp`} alt="hashicorp vault unseal"/>
-  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp vault unseal"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp vault unseal"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.webp`} alt="hashicorp-vault-unseal"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp-vault-unseal"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unseal.jpg`} alt="hashicorp-vault-unseal"/>
 </picture>
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.webp`} alt="hashicorp vault unsealed"/>
-  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp vault unsealed"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp vault unsealed"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.webp`} alt="hashicorp-vault-unseal"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp-vault-unseal"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/hashicorp-vault-unsealed.jpg`} alt="hashicorp-vault-unseal"/>
 </picture>
 
 Also there are ways to auto unseal, but thats a topic for another day.
@@ -187,9 +187,9 @@ vault kv put -mount=secret golangsecrets apikey="jduhdshieioieiisbbjsb" awskey="
 ```
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.webp`} alt="eks kube vault kv secret creation"/>
-  <source type="image/jpg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="eks kube vault kv secret creation"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="eks kube vault kv secret creation"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.webp`} alt="kube-vault-create-kv-secret"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="kube-vault-create-kv-secret"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kube-vault-create-kv-secret.jpg`} alt="kube-vault-create-kv-secret"/>
 </picture>
 
 So now we've created kube auth, enabled kv secrets at the same time, weve added our secret to golangsecrets file which is acessible on the path "secret/data/golangsecrets".
