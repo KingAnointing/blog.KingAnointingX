@@ -15,6 +15,7 @@ import Giscus from "@giscus/react";
 Expanding your test on a target makes it easy to find other vulnerable assets.
 
 Finding everything your target controls or own also starts with finding the subdomains of your target.
+<!--truncate-->
 
 Will be sharing with you how i am trying my best not to miss out of any subdomains both newly deployed and old.
 

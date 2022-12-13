@@ -7,7 +7,7 @@ slug: /
 
 ## Notes
 
-Here, you will find a collection of notes on things I learn and bug i get to fix in my day to day activities.
+Here, you will find a collection of notes on things I learn and try, bug i get to fix in my day to day activities simplified.
 
 ### Solutions to Bugs from Day to Day Activities
 
