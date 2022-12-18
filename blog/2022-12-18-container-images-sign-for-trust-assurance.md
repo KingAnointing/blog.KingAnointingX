@@ -62,9 +62,9 @@ cosign generate-key-pair
 You will be prompted to enter a password, after that, you will two files been created, ```cosign.key``` and  ```cosign.pub```
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.webp`} alt="keypairs cosign"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.jpg`} alt="keypairs cosign"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.jpg`} alt="keypairs cosign"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.webp`} alt="keypairs cosign"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.jpg`} alt="keypairs cosign"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.jpg`} alt="keypairs cosign"/>
 </picture>
 
 Here is my application dockerfile for creating the container image
