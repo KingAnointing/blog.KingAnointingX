@@ -1,5 +1,5 @@
 ---
-slug: signing-container-images-for-security-assurance
+slug: signing-container-images-for-trust-assurance
 title: Signing Container Images for Trust Assurance
 author: Saintmalik
 author_title: AppSec Engineer
