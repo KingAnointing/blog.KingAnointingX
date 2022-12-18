@@ -9,7 +9,6 @@ image: https://saintmalikme.mo.cloudinary.net/bgimg/peace-of-mind.webp
 tags: [appsec, cantainer security, devsecops]
 ---
 
-import Figure from '../src/components/Figure';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from "@giscus/react";
 
@@ -56,6 +55,19 @@ I would like to point out that cosign key pairs can be generated in different wa
 
 To sign the image, we need to create a public-private key pair, the text-based one
 
+```yaml
+cosign generate-key-pair
+```
+
+You will be prompted to enter a password, after that, you will two files been created, ```cosign.key``` and  ```cosign.pub```
+
+<picture>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.webp`} alt="keypairs cosign"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.jpg`} alt="keypairs cosign"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosing.jpg`} alt="keypairs cosign"/>
+</picture>
+
+Here is my application dockerfile for creating the container image
 
 ```yaml title="Dockerfile"
 FROM alpine
@@ -117,6 +129,8 @@ So once the workflow is done building, pushing and signing the container image, 
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/sign-container-images-github.jpg`} alt="sign container images github"/>
 </picture>
 
+verify the image using your public key
+
 ```yaml
 cosign verify --key cosign.pub ttl.sh/signed-test-960c8cb:1h | jq
 ```
@@ -170,7 +184,7 @@ When it comes to policy on kubernetes, that are various policy engines to use li
 
 but here i will be using Kyverno, i also want to believe your cluster is up already, if not you can always spin one up locally using minikube.
 
-So let's start;
+So let's jump into it;
 
 <picture>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/lets-get-started.gif`} alt="signing container images"/>
@@ -179,9 +193,9 @@ So let's start;
 
 I wont be going over what policies as code are in kubernetes nor the installation process, but to install Kyverno, head over to their <a href="https://kyverno.io/docs/installation/" target="_blank">documentation</a>
 
-Now lets asumme you have kyverno already up on your cluster, so you need to create the cluster policy and deploy using ```kubectl apply -f clusterpolicy.yaml -n kyverno
+Now lets assume you have kyverno already up on your cluster, so you need to create the cluster policy and deploy using ```kubectl apply -f clusterpolicy.yaml -n kyverno```
 
-```yaml
+```yaml title="clusterpolicy.yaml"
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -239,9 +253,9 @@ kubectl run signed --image=ttl.sh/signed-test-41d6573:1h
 ```
 
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signed-images.webp`} alt="verifying signed images on kube cluster"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signed-images.jpg`} alt="verifying signed images on kube cluster"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signed-images.jpg`} alt="verifying signed images on kube cluster"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/signed-pod.webp`} alt="signed pod"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/signed-pod.jpg`} alt="signed pod"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/signed-pod.jpg`} alt="signed pod"/>
 </picture>
 
 As you can see, the pod was created successfully, now lets run it against an unsigned container image.
