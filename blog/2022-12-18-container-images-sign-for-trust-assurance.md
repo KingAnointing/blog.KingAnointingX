@@ -13,7 +13,7 @@ import Figure from '../src/components/Figure';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Giscus from "@giscus/react";
 
-Hii , am sure you want peace of mind too, haha
+Hii 👋, i am sure you want peace of mind too, haha
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/peace-tweet.webp`} alt="peace tweet"/>
