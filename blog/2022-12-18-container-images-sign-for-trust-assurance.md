@@ -28,44 +28,50 @@ Well, there is no way we would be discussing container supply chain security wit
 
 ### Trust:
 
-You know "trust is the ultimate currency", so that any users using or pulling your images can verifiably trust it and be very sure they are downloading the container image you've created.
+You know "trust is the ultimate currency", so that means any users using or pulling your images can verifiably trust it and be very sure they are downloading the container image you've created.
 
 ### Peace of mind, haha:
 
-A good illustration of this is when you are using kubernetes as your ocheastraror, kubernetes gives you the ability to set your manifest so that it doesnt allows or run an unsigned container images.
+A good illustration of this is when you are using kubernetes as your orchestrator, you can always enforce policies on your kube cluster using any of the policy as code engines.
 
-So that way you are at peace that no trojanized container images will be deployed to your container registry, hence you've elimated the possibilities of hosting and running trojanized container images
+making sure a policy is enforced to validate that your container images are signed.
+
+hence, you will be at peace that no trojanized container images or images that are not signed by your key can be deployed to your cluster.
 
 ## How do you sign your container images?
 
-There are different ways to go about but we would go for the less complex route, sigstore has made things easier with their cosign tool which allows you to sign using your private key and you very using the public key.
+There are different ways to go about this, but we would go for the less complex route.
 
-So lets get into it.
+sigstore has made things easier with their cosign tool which allows you to sign using your private key and you will verify using your public key.
+
+So lets get into it;
 
 i want to believe you are also automating the deployment of your container images via ci/cd pipelines, so the signing too will be automated via ci/cd pipelines.
 
-Here i will be using Github Action(CI/CD tool), you also use any other ci/cd tool like GitLab Ci, Jenkins or even Circle Ci, which everone works, in as much there is a plugin of cosign for them.
+Here i will be using Github Action(CI/CD tool), you can also use any other ci/cd tool like GitLab Ci, Jenkins or even Circle CI, anyone works, in as much there is a plugin of cosign for them.
 
-I would like to point out that cosign key pairs can be generated in different ways;
+Need to also point out that cosign key pairs can be generated in different ways;
 
 - fixed, text-based keys generated using cosign generate-key-pair
 - cloud KMS-based keys generated using cosign generate-key-pair -kms
 - keys generated on hardware tokens using the PIV interface using cosign piv-tool
 - Kubernetes-secret based keys generated using cosign generate-key-pair k8s://namespace/secretName
 
-To sign the image, we need to create a public-private key pair, the text-based one
+To sign the container image, we need to create a public-private key pair, i will be creating the text-based one
 
 ```yaml
 cosign generate-key-pair
 ```
 
-You will be prompted to enter a password, after that, you will two files been created, ```cosign.key``` and  ```cosign.pub```
+You will be prompted to enter a password, after that, two new files should be created, ```cosign.key``` and  ```cosign.pub```
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.webp`} alt="keypairs cosign"/>
   <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.jpg`} alt="keypairs cosign"/>
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/keypairs-cosign.jpg`} alt="keypairs cosign"/>
 </picture>
+
+Done creating the keypair? let's create our dockerfile for our container image.
 
 Here is my application dockerfile for creating the container image
 
@@ -75,7 +81,7 @@ RUN apk update
 RUN apk add git
 ```
 
-now lets create the github workflow yaml file where we put all it all together
+now let's create the github workflow yaml file where we are going to put it all together
 
 ```yaml title="https://github.com/saintmalik/sign-container-images/blob/main/.github/workflows/main.yaml"
 name: sign container images
@@ -107,13 +113,15 @@ jobs:
           COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
 ```
 
-You would see that i am not login into any repository here, either docker hub or aws ecr, thats because i am using ttl.sh repository which allows me to push images anonymously.
+You would see that i am not login into any container repository here, neither docker hub nor aws ecr, that's because i am using **ttl.sh** container image repository which allows me to push and host container image anonymously
 
 But if you happen to use github container or ecr repository then you will need to login to your repository.
 
 So now you need to set the ```COSIGN_PRIVATE_KEY``` and ```COSIGN_PASSWORD``` environment credentials in your github repo.
 
-so just run ```cat cosign.key``` and copy the output and add it, also the private key you just set to it.
+You can just run ```cat cosign.key``` and copy the output, then add it to the ```COSIGN_PRIVATE_KEY``` value box.
+
+For the ```COSIGN_PASSWORD```, input the password you entered while creating the keypairs from the start.
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/variables-github-repo.webp`} alt="variables github repo"/>
@@ -121,7 +129,7 @@ so just run ```cat cosign.key``` and copy the output and add it, also the privat
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/variables-github-repo.jpg`} alt="variables github repo"/>
 </picture>
 
-So once the workflow is done building, pushing and signing the container image, you can verify the images using your public key.
+So once the workflow is done building, pushing and signing the container image, you can verify the container image using your public key.
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/sign-container-images-github.webp`} alt="sign container images github"/>
@@ -135,7 +143,7 @@ verify the image using your public key
 cosign verify --key cosign.pub ttl.sh/signed-test-960c8cb:1h | jq
 ```
 
-if the public key is ours, then the verification should go through, and you should see a result similar to this.
+if the public key is yours, then the verification should go through, and you should see a result similar to this.
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signed-images.webp`} alt="verify-signed-images"/>
@@ -143,7 +151,7 @@ if the public key is ours, then the verification should go through, and you shou
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signed-images.jpg`} alt="verify-signed-images"/>
 </picture>
 
-Now we've successfully signed and verify the container image, but we can still add annotations to signing our container images for a detailed information from the container image verification
+Now we've successfully signed and verify the container image, but we can still add annotations to signing our container images for a detailed information from the container image verification.
 
 We are going to modify our yaml file to add the signing author's name to the image signing.
 
@@ -165,18 +173,22 @@ Once your workflow is done running and the image is signed, you can now verify i
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/verify-signing-images-author.jpg`} alt="verify signing images author"/>
 </picture>
 
-You know how to sign and verify container images now, but thats now all, we also have another signing option called keyless, this process uses OIDC(authentication) to sign container images.
+You know how to sign and verify container images now, but that's now all, we also have another signing option called keyless, this process uses OIDC(authentication) to sign container images.
 
-The idea of keyless is to peg to users identity, so you can sign your container images using github authentication or other OIDC authenticator, this process is not in production yet, you can check cosign repo for more details.
+The idea of keyless is to peg image signing to users identity, so you can sign your container images using github authentication or other OIDC authenticator.
 
-Signing with keyless is not also advsable on a private repo, infact its also disabled on github, because artifacts from keyless signed images are published on a transparent log where everyone can see.
+This process is not in production yet, you can check the cosign repo for more <a href="https://github.com/sigstore/cosign/" target ="_blank">details</a>.
 
-But why would you ever need to sign using keyless?
+Signing with keyless is not also advisable on a private repo, infact it has been disabled by github.
 
-- compromised keys in the long run
+Because artifacts from keyless signed images are published on a transparent log(rekor) where everyone can see.
+
+But why would you ever need to sign using the keyless method?
+
+- your key can be compromised in the long run
 - not so good in the scalable viewpoint
 
-Well thats all on the signing process, lets jump into to the signed image enforcement for users of who uses orchestrators like kubernetes
+Well that's all on the signing process, let's jump into the signed image enforcement for users who uses orchestrator like kubernetes
 
 ## Signed Image Policy Enforcement on Kubernetes
 
@@ -191,9 +203,9 @@ So let's jump into it;
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/lets-get-started.gif`} alt="signing container images"/>
 </picture>
 
-I wont be going over what policies as code are in kubernetes nor the installation process, but to install Kyverno, head over to their <a href="https://kyverno.io/docs/installation/" target="_blank">documentation</a>
+I won't be going over what policies as code is in kubernetes nor the installation process, but to install Kyverno, head over to their <a href="https://kyverno.io/docs/installation/" target="_blank">documentation</a>
 
-Now lets assume you have kyverno already up on your cluster, so you need to create the cluster policy and deploy using ```kubectl apply -f clusterpolicy.yaml -n kyverno```
+Now lets assume you have kyverno up already on your cluster, so you need to create the cluster policy and deploy using ```kubectl apply -f clusterpolicy.yaml -n kyverno```
 
 ```yaml title="clusterpolicy.yaml"
 apiVersion: kyverno.io/v1
@@ -232,13 +244,13 @@ spec:
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/kyverno-policy-apply.jpg`} alt="kyverno policy apply"/>
 </picture>
 
-Replace the public here with your own public key, you can get that by running ```cat cosign.pub``` and also the replace the image link with your own container registry images.
+Replace the public here with your own public key, you can get that by running ```cat cosign.pub``` and also the replace the image link with your own container registry image.
 
-you will notice the asterisk here ```"ghcr.io/kyverno/test-verify-image:*"``` it's used to generalize the tags, so which so ever tag that the image has, it will bevalid for the check.
+you will notice the asterisk here ```"ghcr.io/kyverno/test-verify-image:*"``` it's used to generalize the tags, so which so ever tag that the image has, it will be valid for the policy check.
 
 But in a situation where you are running microservices? you might just want to use ```"*"``` to generalize it across your microservices pod.
 
-You can also read more over their <a href="https://kyverno.io/docs/writing-policies/verify-images" target="_blank">documentation</a> to for more detailed guide.
+You can also read more about different ways of enforcing the image signing policy on their <a href="https://kyverno.io/docs/writing-policies/verify-images" target="_blank">documentation</a> page.
 
 <picture>
   <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/clusterpolicy-deployed.webp`} alt="clusterpolicy deployed"/>
@@ -246,7 +258,7 @@ You can also read more over their <a href="https://kyverno.io/docs/writing-polic
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/clusterpolicy-deployed.jpg`} alt="clusterpolicy deployed"/>
 </picture>
 
-Once your cluster policy has been deployed, let's test it out, firstly we are going to run a signed image.
+Once your cluster policy has been deployed, it's time to test it out, firstly we are going to run/deploy a signed image.
 
 ```yaml
 kubectl run signed --image=ttl.sh/signed-test-41d6573:1h
@@ -269,7 +281,7 @@ kubectl run unsigned --image=ttl.sh/signed-test-a4d2a1b:1h
   <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-images-policy.jpg`} alt="unsigned image policy"/>
 </picture>
 
-Great, you can see the pod was stopped from starting, the policy is been enforced, and you can be rest assured that any container image that isnt signed by your private key, would never make it into your clusters.
+Great, you can see the pod was stopped from starting, the policy is been enforced, and you can be rest assured that any container image that isn't signed by your private key, would never make it into your clusters.
 
 That's it folks! i hope this was useful and helpful, might also write about using the keyless signing soon too, so stay tuned!
 
