@@ -15,7 +15,15 @@ import Giscus from "@giscus/react";
 
 Hii , am sure you want peace of mind too, haha
 
+<picture>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/peace-tweet.webp`} alt="peace tweet"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/peace-tweet.jpg`} alt="peace tweet"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/peace-tweet.jpg`} alt="peace tweet"/>
+</picture>
+
 Well, there is no way we would be discussing container supply chain security without talking about signing of container images.
+
+<!--truncate-->
 
 ## So why do you need to sign your container images?
 
@@ -37,8 +45,7 @@ So lets get into it.
 
 i want to believe you are also automating the deployment of your container images via ci/cd pipelines, so the signing too will be automated via ci/cd pipelines.
 
-i will be using Github Action(CI/CD tool), you also use any other ci/cd tool like GitLab Ci, Jenkins or even Circle Ci, which everone works, in as much there is a plugin of cosign for them.
-
+Here i will be using Github Action(CI/CD tool), you also use any other ci/cd tool like GitLab Ci, Jenkins or even Circle Ci, which everone works, in as much there is a plugin of cosign for them.
 
 I would like to point out that cosign key pairs can be generated in different ways;
 
@@ -243,9 +250,9 @@ As you can see, the pod was created successfully, now lets run it against an uns
 kubectl run unsigned --image=ttl.sh/signed-test-a4d2a1b:1h
 ```
 <picture>
-  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-imgaes-policy.webp`} alt="unsigned image policy"/>
-  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-imgaes-policy.jpg`} alt="unsigned image policy"/>
-  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-imgaes-policy.jpg`} alt="unsigned image policy"/>
+  <source type="image/webp" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-images-policy.webp`} alt="unsigned image policy"/>
+  <source type="image/jpeg" srcset={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-images-policy.jpg`} alt="unsigned image policy"/>
+  <img src={`${useDocusaurusContext().siteConfig.customFields.imgurl}/bgimg/unsigned-images-policy.jpg`} alt="unsigned image policy"/>
 </picture>
 
 Great, you can see the pod was stopped from starting, the policy is been enforced, and you can be rest assured that any container image that isnt signed by your private key, would never make it into your clusters.
