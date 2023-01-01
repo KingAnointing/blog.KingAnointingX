@@ -121,7 +121,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           disableVersioning: false,
           editCurrentVersion: false,
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: true,
         },
         blog: {
