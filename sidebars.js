@@ -10,7 +10,7 @@ module.exports = {
     {
       type: "category",
       label: "Solutions to Bugs from Day to Day Activities",
-      items: ["hello world"],
+      items: ["hello-world"],
     },
   ],
 };
