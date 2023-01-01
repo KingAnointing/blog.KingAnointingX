@@ -60,6 +60,10 @@ module.exports = {
           title: "Connect",
           items: [
             {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/in/adetoye-anointing-155270235",
+            },
+            {
               label: "Twitter",
               href: "https://twitter.com/KingAnointingX",
             },
