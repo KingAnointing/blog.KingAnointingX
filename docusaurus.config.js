@@ -5,7 +5,7 @@ module.exports = {
   url: "https://kinganointing-blog.netlify.app",
   baseUrl: "/",
   trailingSlash: true,
-  onBrokenLinks: "ignore",
+  onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/protpf.jpeg",
   organizationName: "KingAnointingX", // Usually your GitHub org/user name.
@@ -18,7 +18,7 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: "Ramblings from KingAnointing",
+      title: "Randoms from KingAnointingX",
       logo: {
         alt: "KingAnointingX",
         src: "img/protpf.jpeg",
@@ -84,7 +84,7 @@ module.exports = {
           items: [
             {
               label: "Blog  Archive",
-              href: "https://kinganointing.netlify.app/archive",
+              href: "https://kinganointing-blog.netlify.app/archive",
             },
             {
               label: "Work",
