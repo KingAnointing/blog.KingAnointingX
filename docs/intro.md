@@ -2,6 +2,7 @@
 title: Learning Diary
 sidebar_position: 1
 slug: /
+author: KingAnointingX
 ---
 
 
