@@ -22,19 +22,20 @@ module.exports = {
       logo: {
         alt: "KingAnointingX",
         src: "img/protpf.jpeg",
-        href: "https://",
+        href: "https://kinganointing-blog.netlify.app",
         target: "_blank",
       },
       items: [
         { to: "/", label: "Blog", position: "left" },
         {
-          to: "./docs/",
-          activeBasePath: "docs",
+          to: "/docs/",
+          activeBasePath: "",
           label: "Notes",
           position: "left",
         },
         {
           href: "https://kinganointing-blog.netlify.app/about",
+          label: "About",
           position: "right",
         },
         {
