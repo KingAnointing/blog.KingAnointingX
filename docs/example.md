@@ -1,5 +1,5 @@
 ---
-HELLO WORLD
+title : HELLO WORLD
 ---
 
 import Giscus from "@giscus/react";
