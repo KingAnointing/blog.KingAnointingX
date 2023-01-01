@@ -12,15 +12,5 @@ module.exports = {
       label: "Solutions to Bugs from Day to Day Activities",
       items: ["hello-world"],
     },
-    {
-      type: "category",
-      label: "Learning GoLang",
-      items: [],
-    },
-    {
-      type: "category",
-      label: "Could Help You",
-      items: [],
-    },
   ],
 };
