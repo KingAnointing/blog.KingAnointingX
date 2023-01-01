@@ -1,11 +1,11 @@
 [[redirects]]
-from = "https://www"
-to = "https://"
+from = "https://www.kinganointing-blog.netlify.app"
+to = "https://kinganointing-blog.netlify.app"
 status = 301
 force = true
 
 [[redirects]]
-from = "http://www"
-to = "https://"
+from = "https://www.kinganointing-blog.netlify.app"
+to = "https://kinganointing-blog.netlify.app"
 status = 301
 force = true

@@ -1,15 +1,15 @@
 module.exports = {
-  title: 'KingAnointingX',
-  tagline: 'Software Engineer { Backend Developer} and Aspiring Blockchain Developer .',
-  url: '', // todo : fill with url after making the first push
-  // url: 'https://blog.kinganointingx.me',
-  baseUrl: '/',
+  title: "KingAnointingX",
+  tagline:
+    "Software Engineer { Backend Developer} and Wannabe Blockchain Developer .",
+  url: "https://kinganointing-blog.netlify.app",
+  baseUrl: "/",
   trailingSlash: true,
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/protpf.jpeg',
-  organizationName: 'KingAnointing', // Usually your GitHub org/user name.
-  projectName: 'blog.kinganointingx.me', // Usually your repo name.
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/protpf.jpeg",
+  organizationName: "KingAnointingX", // Usually your GitHub org/user name.
+  projectName: "https://kinganointing-blog.netlify.app", // Usually your repo name.
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
@@ -34,63 +34,59 @@ module.exports = {
           position: "left",
         },
         {
-          href: '', // todo : fill out after first push
-          // href: 'https://KingAnointingx.me/about', 
-          label: 'About',
-          position: 'right',
+          href: "https://kinganointing-blog.netlify.app/about",
+          position: "right",
         },
         {
-          href: '', // todo : fill out after first push
-          // href: 'https://kinganointingx.me/works', 
-          label: 'Works',
-          position: 'right',
+          href: "https://kinganointing-blog.netlify.app/works",
+          label: "Works",
+          position: "right",
         },
         {
-          href: '', // todo : fill out after first push
-          // href: 'https://kinganointingx.me/talks', 
-          label: 'Talks',
-          position: 'right',
+          href: "https://kinganointing-blog.netlify.app/talks",
+          label: "Talks",
+          position: "right",
         },
         {
-          href: 'https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link',
-          label: 'Resume',
-          position: 'right',
+          href: "https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link",
+          label: "Resume",
+          position: "right",
         },
       ],
     },
     footer: {
       links: [
         {
-          title: 'Connect',
+          title: "Connect",
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/KingAnointingX',
+              label: "Twitter",
+              href: "https://twitter.com/KingAnointingX",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/KingAnointing',
+              label: "GitHub",
+              href: "https://github.com/KingAnointing",
             },
             {
-              label: 'Email',
-              href: 'mailto:apexchaos@duck.com',
+              label: "Email",
+              href: "mailto:apexchaos@duck.com",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog  Archive',
-              // href: 'https://blog.kinganointingx.me/archive',
+              label: "Blog  Archive",
+              href: "https://kinganointing-blog.netlify.app/archive",
             },
             {
-              label: 'Work',
-              // href: 'https://kinganointingx.me/works',
+              label: "Work",
+              href: "https://kinganointing-blog.netlify.app/works",
             },
             {
-              label: 'Resume',
-              href: 'https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link',
+              label: "Resume",
+              href: "https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link",
             },
           ],
         },
@@ -100,20 +96,20 @@ module.exports = {
   },
   customFields: {
     // imgurl: 'https://kinganointingxme.mo.cloudinary.net',
-    imgurl: '', //? : ask saintmalik what this is about
+    imgurl: "https://kinganointing-blog.netlify.app.mo.cloudinary.net", //? : ask saintmalik what this is about
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         googleAnalytics: {
-          trackingID: 'UA-123518521-4',
+          trackingID: "UA-123518521-4",
           anonymizeIP: true, // Should IPs be anonymized?
         },
         sitemap: {
-          changefreq: 'weekly',
+          changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ["/tags/**"],
         },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
@@ -123,14 +119,16 @@ module.exports = {
           showLastUpdateTime: true,
         },
         blog: {
-          blogTitle: 'KingAnointing Software Engineering X Blockchain Development Blog',
-          blogDescription: 'Blog For Software Et Blockchain Development, Open Source, Golang X Solidity, Software Optimization And More As Discovered !!',
+          blogTitle:
+            "KingAnointing Software Engineering X Blockchain Development Blog",
+          blogDescription:
+            "Blog For Software Et Blockchain Development, Open Source, Golang X Python, Software Optimization And More As Discovered !!",
           // showReadingTime: true,
           path: "./blog",
-          routeBasePath: "/"
+          routeBasePath: "/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
