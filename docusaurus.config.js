@@ -29,7 +29,8 @@ module.exports = {
         { to: "/", label: "Blog", position: "left" },
         {
           to: "/docs/",
-          activeBasePath: "docs",  projectName: "blog.KingAnointingX", // Usually your repo name.
+          activeBasePath: "docs",
+          projectName: "blog.KingAnointingX", // Usually your repo name.
 
           label: "Notes",
           position: "left",
@@ -121,7 +122,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           disableVersioning: false,
           editCurrentVersion: false,
-          showLastUpdateAuthor: false,
+          showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
         blog: {
