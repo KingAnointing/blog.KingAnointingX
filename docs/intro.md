@@ -18,21 +18,3 @@ Here, you will find a collection of notes on things I learn and try, bug i get t
 | 1   | [Deployment Issue](hello-world)                                          | Jan 1, 2023    |
 
 </div>
-
-### Learning GoLang
-
-<div class="contentTableContainer">
-
-|     | Title                                                                   | Date Posted |
-| --- | ----------------------------------------------------------------------- | ----------------- |
-
-</div>
-
-### Could Be Helpful
-
-<div class="contentTableContainer">
-
-|     | Title                                                                   | Date Posted |
-| --- | ----------------------------------------------------------------------- | ----------------- |
-
-</div>
