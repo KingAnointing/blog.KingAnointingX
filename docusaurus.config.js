@@ -1,14 +1,15 @@
 module.exports = {
-  title: 'SaintMalik',
-  tagline: 'Penetration Tester and Aspiring AppSec Engineer.',
-  url: 'https://blog.saintmalik.me',
+  title: 'KingAnointingX',
+  tagline: 'Software Engineer { Backend Developer} and Aspiring Blockchain Developer .',
+  url: '', // todo : fill with url after making the first push
+  // url: 'https://blog.kinganointingx.me',
   baseUrl: '/',
   trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/saintmalik.jpg',
-  organizationName: 'saintmalik', // Usually your GitHub org/user name.
-  projectName: 'blog.saintmalik.me', // Usually your repo name.
+  favicon: 'img/protpf.jpeg',
+  organizationName: 'KingAnointing', // Usually your GitHub org/user name.
+  projectName: 'blog.kinganointingx.me', // Usually your repo name.
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
@@ -17,11 +18,11 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: "Ramblings from Abdulmalik",
+      title: "Ramblings from KingAnointing",
       logo: {
-        alt: "SaintMalik",
-        src: "img/saintmalik.jpg",
-        href: "https://saintmalik.me",
+        alt: "KingAnointingX",
+        src: "img/protpf.jpeg",
+        href: "https://",
         target: "_blank",
       },
       items: [
@@ -33,22 +34,25 @@ module.exports = {
           position: "left",
         },
         {
-          href: 'https://saintmalik.me/about',
+          href: '', // todo : fill out after first push
+          // href: 'https://KingAnointingx.me/about', 
           label: 'About',
           position: 'right',
         },
         {
-          href: 'https://saintmalik.me/works',
+          href: '', // todo : fill out after first push
+          // href: 'https://kinganointingx.me/works', 
           label: 'Works',
           position: 'right',
         },
         {
-          href: 'https://saintmalik.me/talks',
+          href: '', // todo : fill out after first push
+          // href: 'https://kinganointingx.me/talks', 
           label: 'Talks',
           position: 'right',
         },
         {
-          href: 'https://docs.google.com/document/d/1q0NQV-D_HZPc92cVaLe3ojAZCm_1l6Eb6duu6l7ddpE/edit?usp=sharing',
+          href: 'https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link',
           label: 'Resume',
           position: 'right',
         },
@@ -61,15 +65,15 @@ module.exports = {
           items: [
             {
               label: 'Twitter',
-              href: 'https://twitter.com/saintmalik_',
+              href: 'https://twitter.com/KingAnointingX',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/saintmalik',
+              href: 'https://github.com/KingAnointing',
             },
             {
               label: 'Email',
-              href: 'mailto:saintmalik@protonmail.com',
+              href: 'mailto:apexchaos@duck.com',
             },
           ],
         },
@@ -78,15 +82,15 @@ module.exports = {
           items: [
             {
               label: 'Blog  Archive',
-              href: 'https://blog.saintmalik.me/archive',
+              // href: 'https://blog.kinganointingx.me/archive',
             },
             {
               label: 'Work',
-              href: 'https://saintmalik.me/works',
+              // href: 'https://kinganointingx.me/works',
             },
             {
               label: 'Resume',
-              href: 'https://docs.google.com/document/d/1q0NQV-D_HZPc92cVaLe3ojAZCm_1l6Eb6duu6l7ddpE/edit?usp=sharing',
+              href: 'https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link',
             },
           ],
         },
@@ -95,7 +99,8 @@ module.exports = {
     },
   },
   customFields: {
-    imgurl: 'https://saintmalikme.mo.cloudinary.net',
+    // imgurl: 'https://kinganointingxme.mo.cloudinary.net',
+    imgurl: '', //? : ask saintmalik what this is about
   },
   presets: [
     [
@@ -118,8 +123,8 @@ module.exports = {
           showLastUpdateTime: true,
         },
         blog: {
-          blogTitle: 'Saintmalik Security Blog',
-          blogDescription: 'Blog For Application Security, Open Source, Golang, Web app performanc optimization and more.!',
+          blogTitle: 'KingAnointing Software Engineering X Blockchain Development Blog',
+          blogDescription: 'Blog For Software Et Blockchain Development, Open Source, Golang X Solidity, Software Optimization And More As Discovered !!',
           // showReadingTime: true,
           path: "./blog",
           routeBasePath: "/"
