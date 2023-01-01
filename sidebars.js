@@ -7,10 +7,20 @@ module.exports = {
       type: "doc",
       id: "intro",
     },
-    // {
-    //   type: "category",
-    //   label: "Solutions to Bugs from Day to Day Activities",
-    //   items: ["hello-world"],
-    // },
+    {
+      type: "category",
+      label: "Solutions to Bugs from Day to Day Activities",
+      items: ["hello-world"],
+    },
+    {
+      type: "category",
+      label: "Learning GoLang",
+      items: [],
+    },
+    {
+      type: "category",
+      label: "Could Help You",
+      items: [],
+    },
   ],
 };
