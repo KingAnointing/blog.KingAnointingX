@@ -9,7 +9,7 @@ module.exports = {
   onBrokenMarkdownLinks: "warn",
   favicon: "img/protpf.jpeg",
   organizationName: "KingAnointingX", // Usually your GitHub org/user name.
-  projectName: "https://kinganointing-blog.netlify.app", // Usually your repo name.
+  projectName: "blog.KingAnointingX", // Usually your repo name.
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
@@ -29,22 +29,23 @@ module.exports = {
         { to: "/", label: "Blog", position: "left" },
         {
           to: "/docs/",
-          activeBasePath: "docs",
+          activeBasePath: "docs",  projectName: "blog.KingAnointingX", // Usually your repo name.
+
           label: "Notes",
           position: "left",
         },
         {
-          href: "https://kinganointing-blog.netlify.app/about",
+          href: "https://kinganointing.netlify.app/about",
           label: "About",
           position: "right",
         },
         {
-          href: "https://kinganointing-blog.netlify.app/works",
+          href: "https://kinganointing.netlify.app/works",
           label: "Works",
           position: "right",
         },
         {
-          href: "https://kinganointing-blog.netlify.app/talks",
+          href: "https://kinganointing.netlify.app/talks",
           label: "Talks",
           position: "right",
         },
@@ -83,11 +84,11 @@ module.exports = {
           items: [
             {
               label: "Blog  Archive",
-              href: "https://kinganointing-blog.netlify.app/archive",
+              href: "https://kinganointing.netlify.app/archive",
             },
             {
               label: "Work",
-              href: "https://kinganointing-blog.netlify.app/works",
+              href: "https://kinganointing.netlify.app/works",
             },
             {
               label: "Resume",
@@ -101,7 +102,7 @@ module.exports = {
   },
   customFields: {
     // imgurl: 'https://kinganointingxme.mo.cloudinary.net',
-    imgurl: "https://kinganointing-blog.netlify.app.mo.cloudinary.net", //? : ask saintmalik what this is about
+    imgurl: "https://kinganointing.netlify.app.mo.cloudinary.net", //? : ask saintmalik what this is about
   },
   presets: [
     [
