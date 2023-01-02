@@ -1,15 +1,15 @@
 module.exports = {
-  title: "KingAnointingX",
+  title: "KingDaemonX",
   tagline:
     "Software Engineer { Backend Developer} and Wannabe Blockchain Developer .",
-  url: "https://kinganointing-blog.netlify.app",
+  url: "https://kingdaemonx-blog.netlify.app",
   baseUrl: "/",
   trailingSlash: true,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/protpf.jpeg",
-  organizationName: "KingAnointingX", // Usually your GitHub org/user name.
-  projectName: "blog.KingAnointingX", // Usually your repo name.
+  organizationName: "KingDaemonX", // Usually your GitHub org/user name.
+  projectName: "blog.KingDaemonX", // Usually your repo name.
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
@@ -18,11 +18,11 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: "Randoms from KingAnointingX",
+      title: "Randoms from KingDaemon",
       logo: {
-        alt: "KingAnointingX",
+        alt: "KingDaemonX",
         src: "img/protpf.jpeg",
-        href: "https://kinganointing-blog.netlify.app",
+        href: "https://kingdaemonx-blog.netlify.app",
         target: "_blank",
       },
       items: [
@@ -127,7 +127,7 @@ module.exports = {
         },
         blog: {
           blogTitle:
-            "KingAnointing Software Engineering X Blockchain Development Blog",
+            "KingDaemonX Software Engineering X Blockchain Development Blog",
           blogDescription:
             "Blog For Software Et Blockchain Development, Open Source, Golang X Python, Software Optimization And More As Discovered !!",
           // showReadingTime: true,
