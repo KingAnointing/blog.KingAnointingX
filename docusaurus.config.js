@@ -1,7 +1,7 @@
 module.exports = {
   title: "KingDaemonX",
   tagline:
-    "Software Engineer { Backend Developer} and Wannabe Blockchain Developer .",
+    "Software Engineer 〣 Backend Developer 〣 Blockchain Developer",
   url: "https://kingdaemonx-blog.netlify.app",
   baseUrl: "/",
   trailingSlash: true,
@@ -18,7 +18,7 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: "Randoms from KingDaemon",
+      title: "Randoms from KingDaemonX",
       logo: {
         alt: "KingDaemonX",
         src: "img/protpf.jpeg",
@@ -30,23 +30,23 @@ module.exports = {
         {
           to: "/docs/",
           activeBasePath: "docs",
-          projectName: "blog.KingAnointingX", // Usually your repo name.
+          projectName: "blog.KingDaemonXX", // Usually your repo name.
 
           label: "Notes",
           position: "left",
         },
         {
-          href: "https://kinganointing.netlify.app/about",
+          href: "https://kingdaemonx.netlify.app/about",
           label: "About",
           position: "right",
         },
         {
-          href: "https://kinganointing.netlify.app/works",
+          href: "https://kingdaemonx.netlify.app/works",
           label: "Works",
           position: "right",
         },
         {
-          href: "https://kinganointing.netlify.app/talks",
+          href: "https://kingdameonx.netlify.app/talks",
           label: "Talks",
           position: "right",
         },
@@ -68,11 +68,11 @@ module.exports = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/KingAnointingX",
+              href: "https://twitter.com/KingDaemonX",
             },
             {
               label: "GitHub",
-              href: "https://github.com/KingAnointing",
+              href: "https://github.com/KingDaemonX",
             },
             {
               label: "Email",
@@ -85,15 +85,15 @@ module.exports = {
           items: [
             {
               label: "Blog  Archive",
-              href: "https://kinganointing-blog.netlify.app/archive",
+              href: "https://KingdaemonX-blog.netlify.app/archive",
             },
             {
               label: "Work",
-              href: "https://kinganointing.netlify.app/works",
+              href: "https://KingdaemonX.netlify.app/works",
             },
             {
               label: "Resume",
-              href: "https://drive.google.com/file/d/10zrULAABNNhXr0St00NG43L-RbrENfBn/view?usp=share_link",
+              href: "https://drive.google.com/file/d/1yRQayLMwi1nwxB15x1vgdnwy8h4VQuRZ/view?usp=share_link",
             },
           ],
         },
@@ -102,8 +102,8 @@ module.exports = {
     },
   },
   customFields: {
-    // imgurl: 'https://kinganointingxme.mo.cloudinary.net',
-    imgurl: "https://kinganointing.netlify.app.mo.cloudinary.net", //? : ask saintmalik what this is about
+    // imgurl: 'https://KingDaemonXxme.mo.cloudinary.net',
+    imgurl: "https://kingdaemonX.netlify.app.mo.cloudinary.net", //? : ask saintmalik what this is about
   },
   presets: [
     [
