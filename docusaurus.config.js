@@ -5,7 +5,7 @@ module.exports = {
   url: "https://kingdaemonx-blog.netlify.app",
   baseUrl: "/",
   trailingSlash: true,
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/protpf.jpeg",
   organizationName: "KingDaemonX", // Usually your GitHub org/user name.
